@@ -1,0 +1,22 @@
+<div>
+  <h1>
+    {{title}}
+  </h1>
+</div>
+<app-leaderboard></app-leaderboard>
+<div>{{playerMessage}}</div>
+<div>
+  <ng-container *ngFor="let sq of getSquares(); let i=index;">
+      <ng-container *ngIf="i%3 == 0">
+       <div class="row">
+        <app-gamesquare [square]="getSquares()[i]" >{{sq.val}}</app-gamesquare>
+        <app-gamesquare [square]="getSquares()[i+1]" >{{sq.val}}</app-gamesquare>
+        <app-gamesquare [square]="getSquares()[i+2]" >{{sq.val}}</app-gamesquare>
+      </div>
+     </ng-container>
+  </ng-container>
+</div>
+<div>
+<button (click)="resetGame()">Reset Game</button>
+</div>
+
